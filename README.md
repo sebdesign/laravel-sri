@@ -28,7 +28,7 @@ Next, you must install the service provider:
 
 ## Usage
 
-This package is aimed to reference SRI hashes for `css` and `js` files from a `sri.json` file in your `/public` folder. In order to generate this file, see the [laravel-elixir-sri]('https://github.com/sebdesign/laravel-elixir-sri') repository.
+This package is aimed to reference SRI hashes for `css` and `js` files from a `sri.json` file in your `/public` folder. In order to generate this file, see the [laravel-elixir-sri](https://github.com/sebdesign/laravel-elixir-sri) repository.
 
 To reference the generated hashes from the `sri.json` in your views, you may use the `integrity` helper function with the name of the file you are using in your `elixir` or `asset` function.
 
