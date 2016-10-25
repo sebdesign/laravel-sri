@@ -8,7 +8,6 @@ use Sebdesign\SRI\SubresourceIntegrityServiceProvider;
 
 abstract class TestCase extends Orchestra
 {
-
     public function setUp()
     {
         parent::setUp();
@@ -41,7 +40,7 @@ abstract class TestCase extends Orchestra
             return $this->getTestFilesDirectory();
         });
 
-        $config = $app['files']->getRequire(__DIR__ . '/../config/sri.php');
+        $config = $app['files']->getRequire(__DIR__.'/../config/sri.php');
 
         $app['config']->set('sri', $config);
     }
