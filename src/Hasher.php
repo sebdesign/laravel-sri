@@ -6,7 +6,6 @@ use Illuminate\Contracts\Hashing\Hasher as HasherContract;
 
 class Hasher implements HasherContract
 {
-
     /**
      * @var array
      */
@@ -101,15 +100,15 @@ class Hasher implements HasherContract
      */
     protected function getAlgorithms(array $options)
     {
-        if (!isset($options['algorithms'])
-        || !is_array($options['algorithms'])
+        if (! isset($options['algorithms'])
+        || ! is_array($options['algorithms'])
         || empty($options['algorithms'])) {
             throw new \InvalidArgumentException('No hashing algorithms are set.');
         }
 
         if ($notSupported = array_diff($options['algorithms'], $this->supportedAlgorithms)) {
             throw new \InvalidArgumentException(sprintf(
-                "The hashing algorithms [%s] are not supported.",
+                'The hashing algorithms [%s] are not supported.',
                 implode(', ', $notSupported)
             ));
         }

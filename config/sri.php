@@ -2,7 +2,7 @@
 
 return [
 
-    /**
+    /*
      * List of hashing algorithms to be used.
      */
     'algorithms' => [
@@ -11,17 +11,17 @@ return [
         // 'sha512',
     ],
 
-    /**
+    /*
      * Integrity attribute delimiter.
      */
     'delimiter' => ' ',
 
-    /**
+    /*
      * Output filename.
      */
     'filename' => 'sri.json',
 
-    /**
+    /*
      * Output path.
      */
     'path' => '/public',

@@ -6,7 +6,6 @@ use Illuminate\Support\ServiceProvider;
 
 class SubresourceIntegrityServiceProvider extends ServiceProvider
 {
-
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -20,7 +19,7 @@ class SubresourceIntegrityServiceProvider extends ServiceProvider
     public function boot()
     {
         if ($this->app->runningInConsole()) {
-           $this->publishes([
+            $this->publishes([
                __DIR__.'/../config/sri.php' => config_path('sri.php'),
            ], 'config');
         }
