@@ -17,7 +17,7 @@ if (! function_exists('integrity')) {
         static $hashes = [];
 
         $options = array_replace_recursive(config('sri'), $options);
-        $path = base_path($options['path'].'/'.$options['filename']);
+        $path = base_path($options['path']).DIRECTORY_SEPARATOR.$options['filename'];
 
         if (empty($hashes) || $store !== $path) {
             if (file_exists($path)) {

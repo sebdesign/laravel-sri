@@ -41,6 +41,7 @@ abstract class TestCase extends Orchestra
         });
 
         $config = $app['files']->getRequire(__DIR__.'/../config/sri.php');
+        $config['path'] = '';
 
         $app['config']->set('sri', $config);
     }
