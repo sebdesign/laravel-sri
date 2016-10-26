@@ -26,22 +26,18 @@ if (! function_exists('integrity')) {
             }
         }
 
-        $hashCollection = collect($hashes);
-
-        if (version_compare(app()->version(), '5.3', '<')) {
-            $hashCollection = $hashCollection->flip();
-        }
-
         $file = public_path($file);
 
-        return $hashCollection->first(function ($hash, $hashedFile) use ($file) {
-            return base_path($hashedFile) == $file;
-        }, function () use ($file, $options) {
-            if (file_exists($file)) {
-                return app(Hasher::class)->make($file, $options);
-            }
+        return collect($hashes)
+            ->flip()
+            ->map('base_path')
+            ->flip()
+            ->get($file, function () use ($file, $options) {
+                if (file_exists($file)) {
+                    return app(Hasher::class)->make($file, $options);
+                }
 
-            throw new \InvalidArgumentException("File {$file} not defined in {$options['filename']}.");
-        });
+                throw new \InvalidArgumentException("File {$file} not defined in {$options['filename']}.");
+            });
     }
 }
