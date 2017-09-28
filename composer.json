@@ -38,5 +38,10 @@
             "email": "info@sebdesign.eu",
             "homepage": "http://sebdesign.eu"
         }
-    ]
+    ],
+    "extra": {
+        "laravel": {
+            "providers": ["Sebdesign\\SRI\\SubresourceIntegrityServiceProvider"]
+        }
+    }
 }
