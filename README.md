@@ -16,7 +16,8 @@ You can install the package via composer:
 $ composer require sebdesign/laravel-sri
 ```
 
-Next, you must install the service provider:
+Laravel 5.5 uses Package Auto-Discovery, so doesn't require you to manually add the service provider.
+If you don't use auto-discovery or you are using an older version, you must add the following:
 
 ```php
 // config/app.php
