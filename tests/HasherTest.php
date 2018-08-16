@@ -9,6 +9,26 @@ class HasherTest extends TestCase
     /**
      * @test
      */
+    public function it_gets_information_about_a_given_integrity()
+    {
+        // arrange
+
+        $this->app['config']->set('sri.delimiter', '_');
+
+        $hasher = $this->app->make(Hasher::class);
+
+        // act
+
+        $info = $hasher->info('sha256-foo_sha384-bar');
+
+        // assert
+
+        $this->assertEquals(['sha256', 'sha384'], $info);
+    }
+
+    /**
+     * @test
+     */
     public function it_hashes_a_file()
     {
         // arrange

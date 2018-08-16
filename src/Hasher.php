@@ -12,20 +12,31 @@ class Hasher implements HasherContract
     protected $options = [];
 
     /**
-     * @var array
+     * @var string[]
      */
     protected $supportedAlgorithms = [];
 
     /**
      * Constructor.
      *
-     * @param array $supportedAlgorithms
-     * @param array $options
+     * @param string[] $supportedAlgorithms
+     * @param array    $options
      */
     public function __construct(array $supportedAlgorithms, array $options)
     {
         $this->supportedAlgorithms = $supportedAlgorithms;
         $this->options = $options;
+    }
+
+    /**
+     * Get information about the given hashed value.
+     *
+     * @param  string  $integrity
+     * @return array
+     */
+    public function info($integrity)
+    {
+        return $this->extractAlgorithms($integrity, $this->options);
     }
 
     /**
@@ -72,12 +83,8 @@ class Hasher implements HasherContract
     {
         $options = $this->getOptions($options);
 
-        $algorithms = collect(explode($options['delimiter'], $integrity))
-            ->map(function ($hash) {
-                return head(explode('-', $hash));
-            });
-
-        return $this->getAlgorithms($options) != $algorithms->all();
+        return $this->extractAlgorithms($integrity, $options)
+            != $this->getAlgorithms($options);
     }
 
     /**
@@ -94,8 +101,8 @@ class Hasher implements HasherContract
     /**
      * Get the hashing algorithms from the options.
      *
-     * @param  array  $options
-     * @return array
+     * @param  array    $options
+     * @return string[]
      * @throws \InvalidArgumentException
      */
     protected function getAlgorithms(array $options)
@@ -114,5 +121,19 @@ class Hasher implements HasherContract
         }
 
         return $options['algorithms'];
+    }
+
+    /**
+     * Extract the algorithms from the integrity.
+     *
+     * @param  string   $integrity
+     * @param  array    $options
+     * @return string[]
+     */
+    protected function extractAlgorithms($integrity, array $options)
+    {
+        return array_map(function ($hash) {
+            return head(explode('-', $hash));
+        }, explode($options['delimiter'], $integrity));
     }
 }
