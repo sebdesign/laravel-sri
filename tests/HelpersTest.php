@@ -49,10 +49,11 @@ class HelpersTest extends TestCase
 
     /**
      * @test
-     * @expectedException \InvalidArgumentException
      */
     public function it_fails_if_a_file_does_not_exist()
     {
+        $this->expectException(\InvalidArgumentException::class);
+
         $hasher = $this->app->make(Hasher::class);
 
         integrity('app.min.css');

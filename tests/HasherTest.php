@@ -75,12 +75,13 @@ class HasherTest extends TestCase
 
     /**
      * @test
-     * @expectedException         \InvalidArgumentException
-     * @expectedExceptionMessage  sha1024
      */
     public function it_does_not_accept_invalid_algorithms()
     {
         // arrange
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('sha1024');
 
         $css = $this->getCss();
         $this->app['config']->set('sri.algorithms', ['sha512', 'sha1024']);
