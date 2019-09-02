@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-sri` will be documented in this file
 
+## 2.0.0 - 2019-09-02
+
+- Drop support for Laravel <5.5 and PHP <7.1
+
+## 1.2.0 - 2019-08-06
+
+- Add support for Laravel 6.0
+
 ## 1.1.0 - 2018-09-01
 
 - Add support for Laravel 5.7
