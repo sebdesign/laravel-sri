@@ -2,7 +2,7 @@
 
 namespace Sebdesign\SRI\Test;
 
-use File;
+use Illuminate\Support\Facades\File;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Sebdesign\SRI\SubresourceIntegrityServiceProvider;
 
