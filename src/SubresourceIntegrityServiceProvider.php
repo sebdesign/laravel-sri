@@ -20,8 +20,8 @@ class SubresourceIntegrityServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-               __DIR__.'/../config/sri.php' => config_path('sri.php'),
-           ], 'config');
+                __DIR__.'/../config/sri.php' => config_path('sri.php'),
+            ], 'config');
         }
     }
 
