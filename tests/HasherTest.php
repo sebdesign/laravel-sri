@@ -2,6 +2,7 @@
 
 namespace Sebdesign\SRI\Test;
 
+use PHPUnit\Framework\Constraint\RegularExpression;
 use Sebdesign\SRI\Hasher;
 
 class HasherTest extends TestCase
@@ -109,7 +110,7 @@ class HasherTest extends TestCase
 
         // assert
 
-        $this->assertRegExp('/^sha256-.+ sha384-.+$/', $hash);
+        $this->assertThat($hash, new RegularExpression('/^sha256-.+ sha384-.+$/'));
 
         // act
 
@@ -117,7 +118,7 @@ class HasherTest extends TestCase
 
         // assert
 
-        $this->assertRegExp('/^sha384-.+ sha512-.+$/', $hash);
+        $this->assertThat($hash, new RegularExpression('/^sha384-.+ sha512-.+$/'));
     }
 
     /**
@@ -138,7 +139,7 @@ class HasherTest extends TestCase
 
         // assert
 
-        $this->assertRegExp('/^sha256-.+_sha384-.+$/', $hash);
+        $this->assertThat($hash, new RegularExpression('/^sha256-.+_sha384-.+$/'));
 
         // act
 
@@ -146,7 +147,7 @@ class HasherTest extends TestCase
 
         // assert
 
-        $this->assertRegExp('/^sha256-.+:sha384-.+$/', $hash);
+        $this->assertThat($hash, new RegularExpression('/^sha256-.+:sha384-.+$/'));
     }
 
     /**

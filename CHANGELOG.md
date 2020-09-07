@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-sri` will be documented in this file
 
+## 2.2.0 - 2020-09-07
+
+- Add support for Laravel 8
+
 ## 2.1.0 - 2020-03-03
 
 - Add support for Laravel 7
