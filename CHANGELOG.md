@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-sri` will be documented in this file
 
+## 2.2.1 - 2021-05-28
+
+- Add support for PHP 8 [#8](https://github.com/sebdesign/laravel-sri/pull/8)
+
 ## 2.2.0 - 2020-09-07
 
 - Add support for Laravel 8
