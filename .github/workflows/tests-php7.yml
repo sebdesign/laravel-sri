@@ -13,7 +13,7 @@ jobs:
       fail-fast: true
       matrix:
         php: [7.4, 7.3, 7.2, 7.1]
-        laravel: [8.*, 7.*, 6.*, 5.8.*, 5.7.*, 5.6.* 5.5.*]
+        laravel: [8.*, 7.*, 6.*, 5.8.*, 5.7.*, 5.6.*, 5.5.*]
         include:
           - laravel: 8.*
             testbench: ^6.0
@@ -85,7 +85,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
+          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" "phpunit/phpunit":${{ matrix.phpunit }} --no-interaction --no-update
           composer update --prefer-stable --prefer-dist --no-interaction
 
       - name: Setup PCOV
