@@ -46,7 +46,7 @@ As a fallback, if the given file is not found in the `sri.json`, **it will gener
 // Use with asset() function
 <script
     src="{{ asset('js/app.js') }}"
-    integrity="{{ integrity('js/app.js') }}" 
+    integrity="{{ integrity('js/app.js') }}"
     crossorigin="anonymous">
 </script>
 ```
@@ -65,7 +65,7 @@ You can also override the config options by passing an array as a second argumen
 <link
     rel="stylesheet"
     href="{{ elixir('css/app.css') }}"
-    integrity="{{ integrity('css/app.css', ['algorithms' => ['sha384']]) }}" 
+    integrity="{{ integrity('css/app.css', ['algorithms' => ['sha384']]) }}"
     crossorigin="anonymous">
 ```
 
@@ -81,7 +81,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## Contributing
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+Please see [CONTRIBUTING](./github/CONTRIBUTING.md) for details.
 
 ## Security
 If you discover any security related issues, please email info@sebdesign.eu instead of using the issue tracker.
